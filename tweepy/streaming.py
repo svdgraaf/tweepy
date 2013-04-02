@@ -217,7 +217,8 @@ class Stream(object):
         if follow:
             self.parameters['follow'] = ','.join(map(str, follow))
         if track:
-            self.parameters['track'] = ','.join(map(str, track))
+            encoded_track = [s.encode(encoding) for s in track]
+            self.parameters['track'] = ','.join(encoded_track)
         if locations and len(locations) > 0:
             assert len(locations) % 4 == 0
             self.parameters['locations'] = ','.join(['%.2f' % l for l in locations])
