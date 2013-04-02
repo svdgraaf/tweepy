@@ -208,7 +208,7 @@ class Stream(object):
         self._start(async)
 
     def filter(self, follow=None, track=None, async=False, locations=None, 
-        count = None, stall_warnings=False, languages=None):
+        count = None, stall_warnings=False, languages=None, encoding='utf8'):
         self.parameters = {}
         self.headers['Content-type'] = "application/x-www-form-urlencoded"
         if self.running:
